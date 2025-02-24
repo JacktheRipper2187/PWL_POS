@@ -6,22 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
         Schema::create('m_kategori', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id('kategori_id'); // Primary key
+            $table->string('kategori_kode', 10); // Kode kategori
+            $table->string('kategori_nama', 100); // Nama kategori
+            $table->timestamps(); // created_at dan updated_at
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('m_level');
+        Schema::dropIfExists('m_kategori');
     }
 };
