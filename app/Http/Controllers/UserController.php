@@ -41,8 +41,52 @@ class UserController extends Controller
         // $user = UserModel::where('username', 'manager9')->firstOrFail();
         // return view('user', ['data' => $user]);
 
-        $user = UserModel::where('level_id', '2')->count();
-        //dd($user);
+        // $user = UserModel::where('level_id', '2')->count();
+        // //dd($user);
+        // return view('user', ['data' => $user]);
+
+        // $user = UserModel::firstOrCreate(
+        //     [
+        //         'username' => 'manager',
+        //         'nama' => 'Manager',
+        //     ],
+        // );
+        // return view('user', ['data' => $user]);
+
+        // $user = UserModel::firstOrCreate(
+        //     [
+        //         'username' => 'manager22',
+        //         'nama' => 'Manager Dua Dua',
+        //         'level_id' => 2
+        //     ],
+        //     [
+        //         'password' => Hash::make('12345')
+        //     ]
+        // );
+        // return view('user', ['data' => $user]);
+
+        // $user = UserModel::firstOrNew(
+        //     [
+        //         'username' => 'manager',
+        //         'nama' => 'Manager',
+        //     ],
+        // );
+        // return view('user', ['data' => $user]);
+
+        $user = UserModel::firstOrNew(
+            [
+                'username' => 'manager33',
+                'nama' => 'Manager Tiga Tiga',
+                'level_id' => 2
+            ]
+        );
+        
+        // Set password only if the user is new
+        if (!$user->exists) {
+            $user->password = Hash::make('12345');
+        }
+        
+        $user->save();
         return view('user', ['data' => $user]);
     }
 }
