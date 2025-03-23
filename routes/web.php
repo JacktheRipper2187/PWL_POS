@@ -4,6 +4,7 @@ use App\Http\Controllers\LevelController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\POSController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,3 +44,4 @@ Route::get('/level/tambah', [LevelController::class, 'create']);
 
 Route::post('/level/store', [LevelController::class, 'store'])->name('level.store');
 
+Route::resource('m_user', POSController::class);
