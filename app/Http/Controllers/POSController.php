@@ -13,7 +13,7 @@ class POSController extends Controller
     public function index()
     {
         //fungsi eloquent menampilkan data menggunakan pagination
-        $useri = m_user::all(); // Mengambil semua isi tabel
+        $useri = m_user::paginate(7); // Mengambil semua isi tabel
         return view('m_user.index', compact('useri'))->with('i');
     }
     
@@ -50,7 +50,7 @@ class POSController extends Controller
      */
     public function show(string $id, m_user $useri)
     {
-        $useri = m_user::findOrFail($id);
+        $useri = m_user::find($id);
         return view('m_user.show', compact('useri'));
     }
 
