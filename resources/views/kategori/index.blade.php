@@ -14,6 +14,11 @@
             <a href="/kategori/create" class="btn btn-primary float-right">Add Kategori</a>
         </div>
         <div class="card-body">
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
             {{ $dataTable->table() }}
         </div>
     </div>
