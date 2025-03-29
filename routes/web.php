@@ -5,6 +5,7 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\POSController;
+use App\Http\Controllers\WelcomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,6 @@ use App\Http\Controllers\POSController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/level', [LevelController::class, 'index']);
 Route::get('/kategori', [KategoriController::class, 'index']);
@@ -45,3 +43,4 @@ Route::get('/level/tambah', [LevelController::class, 'create']);
 Route::post('/level/store', [LevelController::class, 'store'])->name('level.store');
 
 Route::resource('m_user', POSController::class);
+Route::get('/',[WelcomeController::class, 'index']);
