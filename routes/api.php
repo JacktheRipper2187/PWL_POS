@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\RegisterController;
 use App\Http\Controllers\Api\LevelController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\KategoriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,12 @@ Route::get('users', [UserController::class, 'index']);
  Route::get('users/{user}', [UserController::class, 'show']);
  Route::put('users/{user}', [UserController::class, 'update']);
  Route::delete('users/{user}', [UserController::class, 'destroy']);
+
+ Route::get('kategoris', [KategoriController::class, 'index']); 
+ Route::post('kategoris', [KategoriController::class, 'store']); 
+ Route::get('kategoris/{kategori}', [KategoriController::class, 'show']); 
+ Route::put('kategoris/{kategori}', [KategoriController::class, 'update']); 
+ Route::delete('kategoris/{kategori}', [KategoriController::class, 'destroy']);
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
